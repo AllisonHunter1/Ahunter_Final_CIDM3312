@@ -42,7 +42,10 @@ namespace Ahunter_Final_CIDM3312.Models
                     new Organization { Name="Canyon Youth Sports Association", Description="Encouraging youth sports and physical activity", ContactEmail="contact@canyonyouthsports.org" },
                     new Organization { Name="Amarillo Veterans Support Group", Description="Offering assistance and resources to local veterans", ContactEmail="support@amarilloveterans.org" },
                     new Organization { Name="Canyon Community Outreach", Description="Addressing social and community needs", ContactEmail="info@canyoncommunity.org" },
-                    new Organization { Name="Amarillo Innovation Hub", Description="A hub for creative thinkers and startups", ContactEmail="contact@amarilloinnovationhub.org" }
+                    new Organization { Name="Amarillo Innovation Hub", Description="A hub for creative thinkers and startups", ContactEmail="contact@amarilloinnovationhub.org" },
+                    new Organization { Name="WTAMU Volunteer Club", Description="Getting Students involved in their community", ContactEmail="volunteer@wt.com" },
+                    new Organization { Name="WT Service Organization", Description="Service Projects and students", ContactEmail="info@wtamuhelps.org" },
+                    new Organization { Name="AC Volunteers", Description="Amarillo college's student volunteer community", ContactEmail="contact@acCollegeAmarillo.org" }
                 };
                 context.Organizations.AddRange(organizations);
 
@@ -72,8 +75,11 @@ namespace Ahunter_Final_CIDM3312.Models
                     new Project { Name="Senior Health Fair", Description="Organizing a health fair for seniors", EndDate= new DateTime(2024, 12, 28), OrganizationId= organizations[12].OrganizationID },
                     new Project { Name="Environmental Awareness Campaign", Description="Raising awareness about environmental issues", EndDate= new DateTime(2024, 1, 15), OrganizationId= organizations[13].OrganizationID },
                     new Project { Name="Technology Skills Workshop", Description="Workshops on improving technology skills", EndDate= new DateTime(2024, 2, 20), OrganizationId= organizations[14].OrganizationID },
-                    new Project { Name="Artists Support Initiative", Description="Supporting local artists with resources and networking", EndDate= new DateTime(2024, 3, 25), OrganizationId= organizations[15].OrganizationID },
-                    new Project { Name="Music Academy Annual Concert", Description="Preparation and execution of the annual concert", EndDate= new DateTime(2024, 4, 30), OrganizationId= organizations[16].OrganizationID }
+                    new Project { Name="Artists Support Initiative", Description="Supporting local artists with resources and networking", EndDate= new DateTime(2024, 3, 25), OrganizationId= organizations[20].OrganizationID },
+                    new Project { Name="Music Academy Annual Concert", Description="Preparation and execution of the annual concert", EndDate= new DateTime(2024, 4, 30), OrganizationId= organizations[21].OrganizationID },
+                    new Project { Name="Holiday Cares", Description="Connect with those in need during the holiday season", EndDate= new DateTime(2024, 2, 20), OrganizationId= organizations[22].OrganizationID },
+                    new Project { Name="Halloween Bash", Description="help out for the halloween bash!", EndDate= new DateTime(2024, 3, 25), OrganizationId= organizations[21].OrganizationID },
+                    new Project { Name="Christmas Food drive", Description="Assist in this holiday food drive", EndDate= new DateTime(2024, 4, 30), OrganizationId= organizations[24].OrganizationID }
                 };
                 context.Projects.AddRange(projects);
 

@@ -53,25 +53,21 @@ skills and technologies learned throughout this class into one complete web appl
 Your task is to develop an idea for a web application that requires data storage and management, and
 implement it using ASP.NET and EF Core with the following requirements.
 
-Mark each complete before submission:
+Mark each complete (#) before submission:
 
-• Create a .gitignore file that contains “bin/” and “obj/”.
+# • Create a .gitignore file that contains “bin/” and “obj/”.
 
-• Your web application should have at least TWO database tables implemented as entity classes.
+# • Your web application should have at least TWO database tables implemented as entity classes.
 
-• Follow steps 1-8 from Week 13 to create your ASP.NET Core project with EF Core.
+# • Follow steps 1-8 from Week 13 to create your ASP.NET Core project with EF Core.
 
 • Use scaffolding (for step 8) on one of your entity classes.
 
-• Write code to display or modify related data. This can’t be scaffolded.
-o For example, if you have students and Projects the Project page should list the students
-in the Project. Each student page should list the Projects that student is in.
-o Another example would be to have a button or form for a student to add/drop a Project.
+# • Write code to display or modify related data. This can’t be scaffolded.
 
-• Seed the database with records for all your entities. Ensure that one entity has enough records
-(at least 25) to support paging.
+# • Seed the database with records for all your entities. Ensure that one entity has enough records (at least 25) to support paging.
 
-• Add Data Validation to all the necessary properties.
+# • Add Data Validation to all the necessary properties.
 
 • Add paging support to a razor page. For example, list only ten records at a time and allow the
 user to navigate to the next and previous pages. Disable the next/prev buttons as appropriate.
@@ -82,7 +78,7 @@ only those results.
 • Allow the user to sort on at least one record both ascending and descending – OR – filter
 records using a SelectList.
 
-• Add links to all appropriate pages in the navigation bar
+# • Add links to all appropriate pages in the navigation bar
 
 
 
