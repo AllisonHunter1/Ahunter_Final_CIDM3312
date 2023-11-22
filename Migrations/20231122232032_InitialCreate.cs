@@ -35,23 +35,23 @@ namespace AhunterFinalCIDM3312.Migrations
                     Name = table.Column<string>(type: "TEXT", maxLength: 35, nullable: false),
                     Description = table.Column<string>(type: "TEXT", maxLength: 200, nullable: false),
                     EndDate = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    OrganizationId = table.Column<int>(type: "INTEGER", nullable: false)
+                    OrganizationID = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Projects", x => x.ProjectId);
                     table.ForeignKey(
-                        name: "FK_Projects_Organizations_OrganizationId",
-                        column: x => x.OrganizationId,
+                        name: "FK_Projects_Organizations_OrganizationID",
+                        column: x => x.OrganizationID,
                         principalTable: "Organizations",
                         principalColumn: "OrganizationID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Projects_OrganizationId",
+                name: "IX_Projects_OrganizationID",
                 table: "Projects",
-                column: "OrganizationId");
+                column: "OrganizationID");
         }
 
         /// <inheritdoc />

@@ -29,13 +29,13 @@ namespace Ahunter_Final_CIDM3312.Pages.OrgProjPages.Projects
                 return NotFound();
             }
 
-            var project =  await _context.Projects.FirstOrDefaultAsync(m => m.ProjectId == id);
+            var project = await _context.Projects.FirstOrDefaultAsync(m => m.ProjectId == id);
             if (project == null)
             {
                 return NotFound();
             }
             Project = project;
-           ViewData["OrganizationId"] = new SelectList(_context.Organizations, "OrganizationID", "ContactEmail");
+            ViewData["OrganizationID"] = new SelectList(_context.Organizations, "OrganizationID", "Name");
             return Page();
         }
 
@@ -71,7 +71,7 @@ namespace Ahunter_Final_CIDM3312.Pages.OrgProjPages.Projects
 
         private bool ProjectExists(int id)
         {
-          return (_context.Projects?.Any(e => e.ProjectId == id)).GetValueOrDefault();
+            return (_context.Projects?.Any(e => e.ProjectId == id)).GetValueOrDefault();
         }
     }
 }

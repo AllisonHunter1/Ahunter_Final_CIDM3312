@@ -20,18 +20,19 @@ namespace Ahunter_Final_CIDM3312.Pages.OrgProjPages.Projects
 
         public IActionResult OnGet()
         {
-        ViewData["OrganizationId"] = new SelectList(_context.Organizations, "OrganizationID", "ContactEmail");
+            // Pop dropdown for orgs
+            ViewData["OrganizationID"] = new SelectList(_context.Organizations, "OrganizationID", "Name");
             return Page();
         }
 
         [BindProperty]
         public Project Project { get; set; } = default!;
-        
+
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid || _context.Projects == null || Project == null)
+            if (!ModelState.IsValid || _context.Projects == null || Project == null)
             {
                 return Page();
             }

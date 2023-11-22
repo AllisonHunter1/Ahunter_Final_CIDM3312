@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AhunterFinalCIDM3312.Migrations
 {
     [DbContext(typeof(OrgProjDbContext))]
-    [Migration("20231122211721_InitialCreate")]
+    [Migration("20231122232032_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -64,12 +64,12 @@ namespace AhunterFinalCIDM3312.Migrations
                         .HasMaxLength(35)
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("OrganizationId")
+                    b.Property<int>("OrganizationID")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("ProjectId");
 
-                    b.HasIndex("OrganizationId");
+                    b.HasIndex("OrganizationID");
 
                     b.ToTable("Projects");
                 });
@@ -78,7 +78,7 @@ namespace AhunterFinalCIDM3312.Migrations
                 {
                     b.HasOne("Ahunter_Final_CIDM3312.Models.Organization", "Organization")
                         .WithMany("Projects")
-                        .HasForeignKey("OrganizationId")
+                        .HasForeignKey("OrganizationID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

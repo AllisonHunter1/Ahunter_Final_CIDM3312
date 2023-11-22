@@ -18,7 +18,7 @@ namespace Ahunter_Final_CIDM3312.Models
         [Required]
         public DateTime EndDate { get; set; } = DateTime.MaxValue;
 
-        public int OrganizationId { get; set; } // Foreign key
+        public int OrganizationID { get; set; } // Foreign key
         public Organization? Organization { get; set; } // Navigation property
     }
 }

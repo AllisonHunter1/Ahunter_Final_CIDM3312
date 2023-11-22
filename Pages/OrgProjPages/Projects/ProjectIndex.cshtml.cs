@@ -17,7 +17,7 @@ namespace Ahunter_Final_CIDM3312.Pages.OrgProjPages
         public int TotalPages { get; set; }
 
         [BindProperty(SupportsGet = true)]
-        public string SortOrder { get; set; }
+        public string SortOrder { get; set; } = string.Empty;
 
         public IList<Project> Project { get; set; } = default!;
 

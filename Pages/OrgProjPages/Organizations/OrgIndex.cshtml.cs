@@ -17,7 +17,7 @@ namespace Ahunter_Final_CIDM3312.Pages.OrgProjPages
         public int TotalPages { get; set; }
 
         [BindProperty(SupportsGet = true)] // Bind this property with query string
-        public string SearchString { get; set; }
+        public string SearchString { get; set; } = string.Empty;
 
         public IList<Organization> Organization { get; set; } = default!;
 

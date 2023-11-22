@@ -27,7 +27,7 @@ namespace Ahunter_Final_CIDM3312.Pages.OrgProjPages.Projects
                 return NotFound();
             }
 
-            var project = await _context.Projects.FirstOrDefaultAsync(m => m.ProjectId == id);
+            var project = await _context.Projects.Include(o => o.Organization).FirstOrDefaultAsync(m => m.ProjectId == id);
             if (project == null)
             {
                 return NotFound();
