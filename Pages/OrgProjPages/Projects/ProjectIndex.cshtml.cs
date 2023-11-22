@@ -12,13 +12,14 @@ namespace Ahunter_Final_CIDM3312.Pages.OrgProjPages
     public class ProjectIndexModel : PageModel
     {
         private readonly OrgProjDbContext _context;
-        public int PageSize = 10;
+        public int PageSize = 10; //paging
         public int CurrentPage { get; set; }
         public int TotalPages { get; set; }
 
         [BindProperty(SupportsGet = true)]
-        public string SortOrder { get; set; } = string.Empty;
+        public string SortOrder { get; set; } = string.Empty;  //Sorting functionality
 
+    
         public IList<Project> Project { get; set; } = default!;
 
         public ProjectIndexModel(OrgProjDbContext context)
@@ -29,7 +30,8 @@ namespace Ahunter_Final_CIDM3312.Pages.OrgProjPages
         public async Task OnGetAsync(int currentPage = 1)
         {
             IQueryable<Project> projectQuery = _context.Projects.Include(o => o.Organization);
-
+            
+            //Sorting functionality
             switch (SortOrder)
             {
                 case "name_desc":
@@ -42,11 +44,11 @@ namespace Ahunter_Final_CIDM3312.Pages.OrgProjPages
             }
 
             var totalRecords = await projectQuery.CountAsync();
-            TotalPages = (int)Math.Ceiling(totalRecords / (double)PageSize);
+            TotalPages = (int)Math.Ceiling(totalRecords / (double)PageSize); //paging
 
             CurrentPage = currentPage;
-            Project = await projectQuery.Skip((CurrentPage - 1) * PageSize)
-                                        .Take(PageSize)
+            Project = await projectQuery.Skip((CurrentPage - 1) * PageSize) //paging
+                                        .Take(PageSize) //paging
                                         .ToListAsync();
         }
     }

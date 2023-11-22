@@ -83,7 +83,7 @@ namespace Ahunter_Final_CIDM3312.Models
                 };
                 context.Projects.AddRange(projects);
 
-                context.SaveChanges();
+                context.SaveChanges(); //Save to DB
             }
         }
     }

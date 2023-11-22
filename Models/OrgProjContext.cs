@@ -8,6 +8,6 @@ namespace Ahunter_Final_CIDM3312.Models
 		{
 		}
 		public DbSet<Organization> Organizations {get; set;} = default!;
-		  public DbSet<Project> Projects { get; set; } // Added DbSet for Projects
+		public DbSet<Project> Projects { get; set; } // Added DbSet for Projects
 	}
 }
