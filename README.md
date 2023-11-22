@@ -69,8 +69,7 @@ Mark each complete (#) before submission:
 
 # • Add Data Validation to all the necessary properties.
 
-• Add paging support to a razor page. For example, list only ten records at a time and allow the
-user to navigate to the next and previous pages. Disable the next/prev buttons as appropriate.
+# Add paging support to a razor page. For example, list only ten records at a time.
 
 • Add a search bar to at least one razor page. Allow the user to type in a search string and show
 only those results.
