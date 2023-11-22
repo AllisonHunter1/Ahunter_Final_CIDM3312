@@ -1,0 +1,46 @@
+@page
+@model Ahunter_Final_CIDM3312.Pages.OrgProjPages.OrganizationIndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Organizations</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<p>
+    <a asp-page="AddCourse">Add Organization</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Organization</th>
+            <th>Description</th>
+            <th>Contact Email</th>
+            <th>Projects</th> 
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model.Organization) {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Name)</td>
+            <td>@Html.DisplayFor(modelItem => item.Description)</td>
+            <td>@Html.DisplayFor(modelItem => item.ContactEmail)</td>
+            <td>
+                @foreach (var project in item.Projects) {
+                    <p>@project.Name (@project.EndDate.ToShortDateString())</p>
+                }
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.OrganizationID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.OrganizationID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.OrganizationID">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

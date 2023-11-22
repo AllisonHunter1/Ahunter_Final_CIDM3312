@@ -134,17 +134,7 @@ dotnet add package Microsoft.EntityFrameworkCore.Design
 3.	Within `Program.cs`, write the code to call your `SeedData.Initialize()` method.
 4.	**PAUSE**. Run dotnet build now at the terminal. If you see build errors, debug!
 
-## Step 8: Combine ASP.NET Core + EF Core //THIS IS WHERE I AM
 
-1.	List all the Organizations on the `Index.cshtml` Razor Page such that each Organization (FirstName + LastName) is displayed on their own line in the web page.
-2.	You need to do the following:
-      * Bring the DbContext into the `IndexModel` class via Dependency Injection.
-      * Use LINQ to create a list of Organizations from the DbContext.
-      * Use a foreach loop in `Index.cshtml` to display the contents of that list.
-3. Run your program fully now with CTRL+F5 or dotnet run.
-4. Visit your website and check your work. If you see errors, debug!
-      
-Congratulations, you have combined ASP.NET Core + EF Core. Continue to the required Step 9 and Step 10 to explore more advanced capabilities.
 
 ## Step 9: Use a SelectList inside a Form
 
