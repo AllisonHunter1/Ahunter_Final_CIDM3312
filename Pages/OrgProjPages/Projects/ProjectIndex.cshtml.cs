@@ -11,29 +11,43 @@ namespace Ahunter_Final_CIDM3312.Pages.OrgProjPages
 {
     public class ProjectIndexModel : PageModel
     {
-        private readonly Ahunter_Final_CIDM3312.Models.OrgProjDbContext _context;
+        private readonly OrgProjDbContext _context;
         public int PageSize = 10;
         public int CurrentPage { get; set; }
         public int TotalPages { get; set; }
-        public ProjectIndexModel(Ahunter_Final_CIDM3312.Models.OrgProjDbContext context)
+
+        [BindProperty(SupportsGet = true)]
+        public string SortOrder { get; set; }
+
+        public IList<Project> Project { get; set; } = default!;
+
+        public ProjectIndexModel(OrgProjDbContext context)
         {
             _context = context;
         }
 
-        public IList<Project> Project { get; set; } = default!;
-
         public async Task OnGetAsync(int currentPage = 1)
         {
-            CurrentPage = currentPage;
-            var totalRecords = await _context.Projects.CountAsync();
+            IQueryable<Project> projectQuery = _context.Projects.Include(o => o.Organization);
+
+            switch (SortOrder)
+            {
+                case "name_desc":
+                    projectQuery = projectQuery.OrderByDescending(p => p.Name);
+                    break;
+                case "name_asc":
+                default:
+                    projectQuery = projectQuery.OrderBy(p => p.Name);
+                    break;
+            }
+
+            var totalRecords = await projectQuery.CountAsync();
             TotalPages = (int)Math.Ceiling(totalRecords / (double)PageSize);
 
-            Project = await _context.Projects
-                .Include(o => o.Organization) // Include organization
-                .Skip((CurrentPage - 1) * PageSize)
-                .Take(PageSize)
-                .ToListAsync();
-
+            CurrentPage = currentPage;
+            Project = await projectQuery.Skip((CurrentPage - 1) * PageSize)
+                                        .Take(PageSize)
+                                        .ToListAsync();
         }
     }
 }

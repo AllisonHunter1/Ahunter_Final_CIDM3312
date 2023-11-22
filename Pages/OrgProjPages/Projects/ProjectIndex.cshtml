@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "ProjectIndex";
+    var nameSortParam = Model.SortOrder == "name_asc" ? "name_desc" : "name_asc";
 }
 
 <h1>Projects</h1>
@@ -15,7 +16,7 @@
     <thead>
         <tr>
             <th>
-                Project
+                <a asp-page="./ProjectIndex" asp-route-sortOrder="@nameSortParam">Project</a>
             </th>
             <th>
                 Description

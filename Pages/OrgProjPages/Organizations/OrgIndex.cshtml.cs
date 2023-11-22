@@ -11,25 +11,36 @@ namespace Ahunter_Final_CIDM3312.Pages.OrgProjPages
 {
     public class OrganizationIndexModel : PageModel
     {
-        private readonly Ahunter_Final_CIDM3312.Models.OrgProjDbContext _context;
-        public int PageSize = 10; 
+        private readonly OrgProjDbContext _context;
+        public int PageSize = 10;
         public int CurrentPage { get; set; }
         public int TotalPages { get; set; }
 
-        public OrganizationIndexModel(Ahunter_Final_CIDM3312.Models.OrgProjDbContext context)
+        [BindProperty(SupportsGet = true)] // Bind this property with query string
+        public string SearchString { get; set; }
+
+        public IList<Organization> Organization { get; set; } = default!;
+
+        public OrganizationIndexModel(OrgProjDbContext context)
         {
             _context = context;
         }
 
-        public IList<Organization> Organization { get; set; } = default!;
         public async Task OnGetAsync(int currentPage = 1)
         {
-            CurrentPage = currentPage;
-            var totalRecords = await _context.Organizations.CountAsync();
+            IQueryable<Organization> orgQuery = _context.Organizations;
+
+            if (!string.IsNullOrEmpty(SearchString))
+            {
+                orgQuery = orgQuery.Where(o => o.Name.Contains(SearchString)
+                                            || o.Description.Contains(SearchString));
+            }
+
+            var totalRecords = await orgQuery.CountAsync();
             TotalPages = (int)Math.Ceiling(totalRecords / (double)PageSize);
 
-            Organization = await _context.Organizations
-                                         .Include(o => o.Projects)
+            CurrentPage = currentPage;
+            Organization = await orgQuery.Include(o => o.Projects)
                                          .Skip((CurrentPage - 1) * PageSize)
                                          .Take(PageSize)
                                          .ToListAsync();
