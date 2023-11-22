@@ -8,7 +8,7 @@
 <h1>Projects</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create">Create New Project</a>
 </p>
 
 <table class="table">
@@ -23,8 +23,9 @@
             <th>
                 Date
             </th>
-            Organization
-            <th></th>
+            <th>
+                Organization
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -41,8 +42,8 @@
                     @Html.DisplayFor(modelItem => item.EndDate)
                 </td>
                 <td>
-                  @Html.DisplayFor(modelItem => item.Organization.Name)
-            </td>
+                    @Html.DisplayFor(modelItem => item.Organization.Name)
+                </td>
                 <td>
                     <a asp-page="./Edit" asp-route-id="@item.ProjectId">Edit</a> |
                     <a asp-page="./Details" asp-route-id="@item.ProjectId">Details</a> |
@@ -74,4 +75,3 @@
         </ul>
     </nav>
 }
-
